@@ -26,11 +26,18 @@ matrix:
           python: "2.7"
         - env: TOX_ENV=py36-django111-postgis
           python: "3.6"
+        - env: TOX_ENV=py35-django20-postgis
+          python: "3.5"
+        - env: TOX_ENV=py36-django20-postgis
+          python: "3.6"
         - env: TOX_ENV=py35-django-master-postgis
           python: "3.5"
         - env: TOX_ENV=py36-django-master-postgis
           python: "3.6"
     allow_failures:
+        # Django 2.0 is in beta
+        - env: TOX_ENV=py35-django20-postgis
+        - env: TOX_ENV=py36-django20-postgis
         # Django master is allowed to fail
         - env: TOX_ENV=py35-django-master-postgis
         - env: TOX_ENV=py36-django-master-postgis
